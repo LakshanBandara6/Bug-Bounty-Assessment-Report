@@ -1,4 +1,4 @@
-# 🐞 Bug Bounty Report — Web Security Assessment  
+#  Bug Bounty Report — Web Security Assessment  
 **Reflected XSS • Missing CSRF Protection • Clickjacking**
 
 **Course:** IE2062 – Web Security  
@@ -7,7 +7,7 @@
 
 ---
 
-## 📌 Overview
+##  Overview
 
 This repository contains my complete **bug bounty–style vulnerability assessment report** created for my university Web Security module.
 
@@ -25,13 +25,13 @@ The target website used for testing is **no longer online**, and all testing was
 
 ---
 
-## 🛡️ Vulnerabilities Identified
+##  Vulnerabilities Identified
 
 The assessment confirmed **three major security issues**, each validated with non-destructive Proof-of-Concepts (PoCs).
 
 ---
 
-### 🔸 1. Reflected Cross-Site Scripting (XSS)
+###  1. Reflected Cross-Site Scripting (XSS)
 
 User input was reflected directly into the HTML response without proper encoding, allowing attacker‑supplied JavaScript to execute.
 
@@ -41,7 +41,7 @@ User input was reflected directly into the HTML response without proper encoding
 
 ---
 
-### 🔸 2. Cross-Site Request Forgery (CSRF)
+###  2. Cross-Site Request Forgery (CSRF)
 
 Sensitive actions such as profile updates lacked CSRF tokens and Origin/Referer validation.  
 A malicious cross‑origin form successfully triggered state‑changing actions on behalf of an authenticated user.
@@ -52,7 +52,7 @@ A malicious cross‑origin form successfully triggered state‑changing actions 
 
 ---
 
-### 🔸 3. Clickjacking (Missing Frame Protection)
+###  3. Clickjacking (Missing Frame Protection)
 
 The site did not send `X-Frame-Options` or a `frame-ancestors` CSP directive, allowing full framing from external origins.
 
@@ -62,7 +62,7 @@ The site did not send `X-Frame-Options` or a `frame-ancestors` CSP directive, al
 
 ---
 
-## 🔍 Methodology
+##  Methodology
 
 The assessment followed a **structured and repeatable penetration testing workflow**:
 
