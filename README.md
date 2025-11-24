@@ -1,9 +1,7 @@
 #  Bug Bounty Report — Web Security Assessment  
 **Reflected XSS • Missing CSRF Protection • Clickjacking**
 
-**Course:** IE2062 – Web Security  
-**Degree:** B.Sc. (Hons) in Information Technology (Cyber Security)  
-**Author:** Y.M.L.K Bandara (IT23620834)
+This repository showcases a full bug‑bounty‑style security assessment performed for academic purposes, featuring real-world methodologies, PoCs, and validated vulnerabilities discovered during ethical testing.
 
 ---
 
