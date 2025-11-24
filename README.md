@@ -1,4 +1,4 @@
-#  Bug Bounty Report — Web Security Assessment  
+#  Bug Bounty Report 
 **Reflected XSS • Missing CSRF Protection • Clickjacking**
 
 This repository showcases a full bug‑bounty‑style security assessment performed for academic purposes, featuring real-world methodologies, PoCs, and validated vulnerabilities discovered during ethical testing.
@@ -6,8 +6,6 @@ This repository showcases a full bug‑bounty‑style security assessment perfor
 ---
 
 ##  Overview
-
-This repository contains my complete **bug bounty–style vulnerability assessment report** created for my university Web Security module.
 
 The project demonstrates a full manual penetration testing workflow, including:
 
@@ -18,8 +16,6 @@ The project demonstrates a full manual penetration testing workflow, including:
 - **Exploitation**
 - **Technical remediation**
 - **Reflections & challenges**
-
-The target website used for testing is **no longer online**, and all testing was conducted **safely, ethically, and using non-destructive methods**.
 
 ---
 
