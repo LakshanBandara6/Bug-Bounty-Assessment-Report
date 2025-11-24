@@ -1,97 +1,89 @@
-🐞 Bug Bounty Report — Web Security Assessment
-Reflected XSS • Missing CSRF Protection • Clickjacking
+# 🐞 Bug Bounty Report — Web Security Assessment  
+**Reflected XSS • Missing CSRF Protection • Clickjacking**
 
-Course: IE2062 – Web Security
-Degree: B.Sc. (Hons) in Information Technology (Cyber Security)
-Author: Y.M.L.K Bandara (IT23620834)
+**Course:** IE2062 – Web Security  
+**Degree:** B.Sc. (Hons) in Information Technology (Cyber Security)  
+**Author:** Y.M.L.K Bandara (IT23620834)
 
-📌 Overview
+---
 
-This repository contains my complete bug bounty–style vulnerability assessment report created for my university Web Security module.
+## 📌 Overview
 
-The project demonstrates a full manual penetration test workflow, including:
+This repository contains my complete **bug bounty–style vulnerability assessment report** created for my university Web Security module.
 
-Reconnaissance
+The project demonstrates a full manual penetration testing workflow, including:
 
-Scanning & mapping
+- **Reconnaissance**
+- **Scanning & mapping**
+- **Vulnerability discovery**
+- **Proof-of-Concept demonstrations**
+- **Exploitation**
+- **Technical remediation**
+- **Reflections & challenges**
 
-Vulnerability discovery
+The target website used for testing is **no longer online**, and all testing was conducted **safely, ethically, and using non-destructive methods**.
 
-Proof-of-Concept demonstrations
+---
 
-Exploitation
+## 🛡️ Vulnerabilities Identified
 
-Technical remediation
+The assessment confirmed **three major security issues**, each validated with non-destructive Proof-of-Concepts (PoCs).
 
-Reflections & challenges
+---
 
-The target website used for testing is no longer online, and all testing was conducted safely and ethically using non-destructive methods.
+### 🔸 1. Reflected Cross-Site Scripting (XSS)
 
-🛡️ Vulnerabilities Identified
+User input was reflected directly into the HTML response without proper encoding, allowing attacker‑supplied JavaScript to execute.
 
-The assessment confirmed three major security issues, each validated with non-destructive PoCs.
+**Impact:** Session hijacking, credential theft, phishing, UI manipulation  
+**Severity:** **High**  
+**OWASP Category:** **A03 – Injection**
 
-🔸 1. Reflected Cross-Site Scripting (XSS)
+---
 
-User input was reflected directly into the HTML response without proper encoding, allowing attacker-supplied JavaScript to execute.
+### 🔸 2. Cross-Site Request Forgery (CSRF)
 
-Impact: Session hijacking, credential theft, phishing, UI manipulation
+Sensitive actions such as profile updates lacked CSRF tokens and Origin/Referer validation.  
+A malicious cross‑origin form successfully triggered state‑changing actions on behalf of an authenticated user.
 
-Severity: High
+**Impact:** Account takeover, unauthorized profile modification  
+**Severity:** **High**  
+**OWASP Category:** **A08 – CSRF**
 
-OWASP Category: A03 – Injection
+---
 
-🔸 2. Cross-Site Request Forgery (CSRF)
+### 🔸 3. Clickjacking (Missing Frame Protection)
 
-Sensitive actions such as profile updates lacked CSRF tokens and Origin/Referer validation.
-A malicious cross-origin form successfully triggered state-changing actions on behalf of an authenticated user.
+The site did not send `X-Frame-Options` or a `frame-ancestors` CSP directive, allowing full framing from external origins.
 
-Impact: Account takeover, unauthorized profile modification
+**Impact:** Click redirection, unintended actions, UI deception  
+**Severity:** **Medium**  
+**OWASP Category:** **A05 – Security Misconfiguration**
 
-Severity: High
+---
 
-OWASP Category: A08 – CSRF
+## 🔍 Methodology
 
-🔸 3. Clickjacking (Missing Frame Protection)
+The assessment followed a **structured and repeatable penetration testing workflow**:
 
-The site did not send X-Frame-Options or a frame-ancestors CSP directive, allowing full framing from external origins.
+### **1. Reconnaissance**
+- Amass  
+- WhatWeb  
+- WAFW00F  
+- Nmap  
 
-Impact: Click redirection, unintended actions, UI deception
+### **2. Scanning & Mapping**
+- OWASP ZAP (spider + passive scan)  
+- Burp Suite (proxy interception & sitemap)
 
-Severity: Medium
+### **3. Exploitation**
+- Crafted PoCs manually  
+- Used Burp Repeater for testing  
+- HTML CSRF attack page  
+- Browser DevTools for DOM inspection
 
-OWASP Category: A05 – Security Misconfiguration
-
-🔍 Methodology
-
-The assessment followed a structured and repeatable penetration testing workflow:
-
-1. Reconnaissance
-
-Amass
-
-WhatWeb
-
-WAFW00F
-
-Nmap
-
-2. Scanning & Mapping
-
-OWASP ZAP (spider + passive scan)
-
-Burp Suite (proxy interception & sitemap)
-
-3. Exploitation
-
-Crafted PoCs manually
-
-Used Burp Repeater for testing
-
-HTML CSRF attack page
-
-Browser DevTools for DOM inspection
-
-4. Verification & Documentation
-
+### **4. Verification & Documentation**
 Reproduced findings, captured evidence, and documented all vulnerabilities clearly.
+
+---
+
